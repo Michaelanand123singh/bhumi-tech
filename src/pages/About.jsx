@@ -1,12 +1,22 @@
 import React from 'react';
+import AboutHero from '../components/about/AboutHero';
+import CompanyStory from '../components/about/CompanyStory';
+import MissionVision from '../components/about/MissionVision';
+import Expertise from '../components/about/Expertise';
+import Differentiators from '../components/about/Differentiators';
+import JourneyTimeline from '../components/about/JourneyTimeline';
+import CoreValues from '../components/about/CoreValues';
 
 const About = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold text-black mb-4">About Page</h1>
-        <p className="text-2xl text-[#4a4a4a]">Coming Soon</p>
-      </div>
+    <div className="min-h-screen bg-white">
+      <AboutHero />
+      <CompanyStory />
+      <MissionVision />
+      <Expertise />
+      <Differentiators />
+      <JourneyTimeline />
+      <CoreValues />
     </div>
   );
 };
