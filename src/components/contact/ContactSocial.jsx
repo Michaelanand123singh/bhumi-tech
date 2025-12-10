@@ -31,32 +31,32 @@ const ContactSocial = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white border-t border-brown-100/30">
+    <section ref={sectionRef} className="py-24 bg-gradient-to-b from-white to-green-50/20 border-t border-brown-100/30">
       <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 tracking-tight">
           Connect <span className="text-green-600 gradient-text">With Us</span>
         </h2>
-        <p className="text-lg md:text-xl text-[#4a4a4a] mb-10 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-[#4a4a4a] mb-12 max-w-2xl mx-auto leading-relaxed">
           Follow us on social media for industry insights and updates
         </p>
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-6">
           <a
             href="#"
-            className="social-icon scroll-reveal w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg hover:bg-green-50 transition-all duration-300 border border-brown-100/50 premium-hover premium-glow group"
+            className="social-icon scroll-reveal w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-green-50 transition-all duration-300 border border-brown-100/50 premium-hover premium-glow group"
           >
-            <Globe className="w-6 h-6 text-black group-hover:text-green-600 transition-colors duration-300" />
+            <Globe className="w-7 h-7 text-black group-hover:text-green-600 transition-all duration-300 group-hover:scale-110" />
           </a>
           <a
             href="#"
-            className="social-icon scroll-reveal w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg hover:bg-green-50 transition-all duration-300 border border-brown-100/50 premium-hover premium-glow group"
+            className="social-icon scroll-reveal w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-green-50 transition-all duration-300 border border-brown-100/50 premium-hover premium-glow group"
           >
-            <MessageCircle className="w-6 h-6 text-black group-hover:text-green-600 transition-colors duration-300" />
+            <MessageCircle className="w-7 h-7 text-black group-hover:text-green-600 transition-all duration-300 group-hover:scale-110" />
           </a>
           <a
             href="#"
-            className="social-icon scroll-reveal w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg hover:bg-green-50 transition-all duration-300 border border-brown-100/50 premium-hover premium-glow group"
+            className="social-icon scroll-reveal w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-green-50 transition-all duration-300 border border-brown-100/50 premium-hover premium-glow group"
           >
-            <Mail className="w-6 h-6 text-black group-hover:text-green-600 transition-colors duration-300" />
+            <Mail className="w-7 h-7 text-black group-hover:text-green-600 transition-all duration-300 group-hover:scale-110" />
           </a>
         </div>
       </div>

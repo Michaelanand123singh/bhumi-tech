@@ -15,7 +15,7 @@ const Contact = () => {
       {/* Main Contact Section */}
       <section className="py-24 bg-white border-t border-brown-100/30">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <ContactForm />
             <ContactSidebar />
           </div>

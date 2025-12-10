@@ -58,32 +58,34 @@ const ContactInfo = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white border-t border-brown-100/30">
+    <section ref={sectionRef} className="py-24 bg-white border-t border-brown-100/30 relative z-20 -mt-24">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {contactInfo.map((info, index) => {
             const IconComponent = info.icon;
             return (
               <div
                 key={index}
-                className="contact-info-card scroll-reveal bg-gradient-to-br from-green-50/30 to-white rounded-2xl p-6 border border-brown-100/50 hover:shadow-lg transition-all duration-300 premium-hover premium-glow group"
+                className="contact-info-card scroll-reveal bg-gradient-to-br from-green-50/50 to-white rounded-2xl p-6 lg:p-8 border border-brown-100/50 hover:shadow-xl transition-all duration-300 premium-hover premium-glow group"
               >
-                <div className="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-600 transition-all duration-300 group-hover:scale-110">
-                  <IconComponent className="w-7 h-7 text-green-600 group-hover:text-white transition-all duration-300" />
+                <div className="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-green-600 transition-all duration-300 group-hover:scale-110 shadow-sm">
+                  <IconComponent className="w-8 h-8 text-green-600 group-hover:text-white transition-all duration-300" />
                 </div>
-                <h3 className="text-lg font-bold text-black mb-3">{info.title}</h3>
-                {info.details.map((detail, idx) => (
-                  <p key={idx} className="text-[#4a4a4a] text-sm mb-1">
-                    {detail}
-                  </p>
-                ))}
+                <h3 className="text-xl font-bold text-black mb-4">{info.title}</h3>
+                <div className="space-y-2 mb-4">
+                  {info.details.map((detail, idx) => (
+                    <p key={idx} className="text-[#4a4a4a] text-sm leading-relaxed">
+                      {detail}
+                    </p>
+                  ))}
+                </div>
                 {info.action && (
                   <a
                     href={info.action}
-                    className="inline-flex items-center text-green-600 font-semibold text-sm mt-3 hover:text-green-700 transition-colors duration-300"
+                    className="inline-flex items-center text-green-600 font-semibold text-sm mt-4 hover:text-green-700 transition-all duration-300 group/link"
                   >
                     Contact Now
-                    <Send className="w-4 h-4 ml-1" />
+                    <Send className="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform duration-300" />
                   </a>
                 )}
               </div>
