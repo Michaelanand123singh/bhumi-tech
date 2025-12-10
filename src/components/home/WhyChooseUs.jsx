@@ -1,25 +1,43 @@
 import React from 'react';
-import SectionTitle from '../common/SectionTitle';
+import { Award, TrendingUp, Globe, Users, CheckCircle, Shield } from 'lucide-react';
 
 const WhyChooseUs = () => {
-  const features = [
-    { title: 'Expert Team', description: 'Experienced professionals dedicated to your success' },
-    { title: 'Proven Results', description: 'Track record of delivering exceptional results' },
-    { title: 'Innovative Solutions', description: 'Cutting-edge technology and methodologies' },
-    { title: '24/7 Support', description: 'Round-the-clock support for all your needs' },
+  const benefits = [
+    { icon: Award, title: '10+ Years Experience', desc: 'Industry expertise in digital entertainment' },
+    { icon: TrendingUp, title: 'Technology-Driven', desc: 'AI-powered monitoring & analytics' },
+    { icon: Globe, title: 'Global Reach', desc: 'Indian & international markets' },
+    { icon: Users, title: '24/7 Support', desc: 'Round-the-clock protection' },
+    { icon: CheckCircle, title: 'Proven Results', desc: 'Trusted by leading creators' },
+    { icon: Shield, title: '100% Compliance', desc: 'Full legal & copyright compliance' },
   ];
 
   return (
-    <section className="py-16">
-      <div className="container mx-auto px-4">
-        <SectionTitle title="Why Choose Us" subtitle="Our Advantages" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className="text-center">
-              <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-            </div>
-          ))}
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Why Choose <span className="text-red-600">Bhumi Technology</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Industry-leading expertise backed by cutting-edge technology
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => {
+            const IconComponent = benefit.icon;
+            return (
+              <div
+                key={index}
+                className="text-center p-6 rounded-xl hover:bg-gray-50 transition-colors group"
+              >
+                <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 transition-colors">
+                  <IconComponent className="w-8 h-8 text-red-600 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

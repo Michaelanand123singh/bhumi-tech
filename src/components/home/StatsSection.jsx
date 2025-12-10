@@ -1,23 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useCountUp } from '../../hooks/useCountUp';
 
-const StatsSection = () => {
-  const stats = [
-    { number: '500+', label: 'Happy Clients' },
-    { number: '1000+', label: 'Projects Completed' },
-    { number: '50+', label: 'Team Members' },
-    { number: '10+', label: 'Years Experience' },
-  ];
+const StatCard = ({ end, suffix, label }) => {
+  const [count, setHasStarted] = useCountUp(end);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    const element = document.getElementById(`stat-${label}`);
+    if (element) observer.observe(element);
+
+    return () => {
+      if (element) observer.disconnect();
+    };
+  }, [setHasStarted, label]);
 
   return (
-    <section className="py-16 bg-blue-600 text-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {stats.map((stat, index) => (
-            <div key={index}>
-              <div className="text-4xl font-bold mb-2">{stat.number}</div>
-              <div className="text-lg">{stat.label}</div>
-            </div>
-          ))}
+    <div
+      id={`stat-${label}`}
+      className="text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+    >
+      <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">
+        {count}{suffix}
+      </div>
+      <div className="text-gray-600 text-sm md:text-base font-medium">{label}</div>
+    </div>
+  );
+};
+
+const StatsSection = () => {
+  return (
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <StatCard end={500} suffix="+" label="Content Partners" />
+          <StatCard end={10} suffix="M+" label="Piracy Threats Blocked" />
+          <StatCard end={50} suffix="+" label="Platform Integrations" />
+          <StatCard end={99.8} suffix="%" label="Uptime Guarantee" />
         </div>
       </div>
     </section>
