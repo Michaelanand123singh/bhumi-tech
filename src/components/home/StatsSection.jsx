@@ -27,10 +27,10 @@ const StatCard = ({ end, suffix, label }) => {
       id={`stat-${label}`}
       className="text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
     >
-      <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">
+      <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">
         {count}{suffix}
       </div>
-      <div className="text-gray-600 text-sm md:text-base font-medium">{label}</div>
+      <div className="text-[#4a4a4a] text-sm md:text-base font-medium">{label}</div>
     </div>
   );
 };

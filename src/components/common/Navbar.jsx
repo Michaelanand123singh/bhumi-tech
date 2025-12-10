@@ -81,8 +81,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`px-4 py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 ${
                   isActive(link.path)
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-green-600 bg-green-50'
+                    : 'text-black hover:text-green-600 hover:bg-green-50'
                 }`}
               >
                 {link.label}
@@ -93,7 +93,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 z-50 transition-colors"
+            className="md:hidden p-2 rounded-lg text-black hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-500 z-50 transition-colors"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -139,8 +139,8 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
                   isActive(link.path)
-                    ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-600'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-green-600 bg-green-50 border-l-4 border-green-600'
+                    : 'text-black hover:text-green-600 hover:bg-green-50'
                 }`}
               >
                 {link.label}

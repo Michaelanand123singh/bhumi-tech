@@ -28,15 +28,15 @@ export const layoutConfig = {
     },
     links: {
       spacing: 'space-x-6',
-      color: 'text-gray-700',
-      hoverColor: 'hover:text-blue-600',
+      color: 'text-black',
+      hoverColor: 'hover:text-green-600',
       transition: 'transition-colors',
     },
   },
 
   // Footer Settings
   footer: {
-    backgroundColor: 'bg-gray-800',
+    backgroundColor: 'bg-brown-900',
     textColor: 'text-white',
     padding: 'py-8',
     logo: {
@@ -89,26 +89,28 @@ export const layoutConfig = {
     '3xl': '4rem',  // 64px
   },
 
-  // Color Scheme
+  // Color Scheme - Premium Professional Theme
   colors: {
     primary: {
-      main: 'blue-600',
-      hover: 'blue-700',
-      light: 'blue-50',
+      main: 'green-600',      // Primary green accent
+      hover: 'green-700',     // Darker green for hover
+      light: 'green-50',      // Light green background
+      dark: 'green-800',      // Dark green
     },
-    secondary: {
-      main: 'gray-200',
-      hover: 'gray-300',
+    accent: {
+      main: 'brown-600',       // Minor brown accent
+      hover: 'brown-700',     // Darker brown for hover
+      light: 'brown-50',      // Light brown background
     },
     text: {
-      primary: 'gray-800',
-      secondary: 'gray-600',
-      light: 'gray-400',
+      primary: 'text-primary',    // Pure black (#000000)
+      secondary: 'text-secondary', // Near black (#1a1a1a)
+      muted: 'text-muted',        // Dark gray (#4a4a4a)
     },
     background: {
-      white: 'white',
-      gray: 'gray-50',
-      dark: 'gray-800',
+      white: 'white',          // Pure white
+      light: 'white',          // White for sections
+      dark: 'brown-900',       // Dark brown for footer
     },
   },
 

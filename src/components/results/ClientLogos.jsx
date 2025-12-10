@@ -7,7 +7,7 @@ const ClientLogos = () => {
       <div className="container mx-auto px-4">
         <SectionTitle title="Our Clients" subtitle="Trusted Partners" />
         <div className="flex justify-center items-center">
-          <p className="text-gray-600">Coming Soon</p>
+          <p className="text-[#4a4a4a]">Coming Soon</p>
         </div>
       </div>
     </section>

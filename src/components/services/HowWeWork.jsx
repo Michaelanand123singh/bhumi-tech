@@ -7,7 +7,7 @@ const HowWeWork = () => {
       <div className="container mx-auto px-4">
         <SectionTitle title="How We Work" subtitle="Our Process" />
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-gray-600 text-lg">
+          <p className="text-[#4a4a4a] text-lg">
             Coming Soon
           </p>
         </div>

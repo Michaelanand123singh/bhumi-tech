@@ -15,10 +15,10 @@ const WhyChooseUs = () => {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Why Choose <span className="text-red-600">Bhumi Technology</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+            Why Choose <span className="text-green-600">Bhumi Technology</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-[#4a4a4a] max-w-2xl mx-auto">
             Industry-leading expertise backed by cutting-edge technology
           </p>
         </div>
@@ -28,13 +28,13 @@ const WhyChooseUs = () => {
             return (
               <div
                 key={index}
-                className="text-center p-6 rounded-xl hover:bg-gray-50 transition-colors group"
+                className="text-center p-6 rounded-xl hover:bg-green-50 transition-colors group"
               >
-                <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 transition-colors">
-                  <IconComponent className="w-8 h-8 text-red-600 group-hover:text-white transition-colors" />
+                <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-600 transition-colors">
+                  <IconComponent className="w-8 h-8 text-green-600 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.desc}</p>
+                <h3 className="text-xl font-bold text-black mb-2">{benefit.title}</h3>
+                <p className="text-[#4a4a4a]">{benefit.desc}</p>
               </div>
             );
           })}
