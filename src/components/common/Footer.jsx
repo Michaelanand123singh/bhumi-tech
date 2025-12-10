@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-brown-900 text-white py-8 w-full">
+    <footer className="bg-[#1d1812] text-white py-8 w-full">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -39,7 +39,7 @@ const Footer = () => {
             <p className="text-gray-300">Phone: +91 XXX XXX XXXX</p>
           </div>
         </div>
-        <div className="border-t border-brown-700 mt-8 pt-8 text-center text-gray-300">
+        <div className="border-t border-[#5d4a3d] mt-8 pt-8 text-center text-gray-300">
           <p>&copy; 2024 Bhumi Tech. All rights reserved.</p>
         </div>
       </div>
@@ -48,4 +48,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
