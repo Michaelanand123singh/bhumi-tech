@@ -57,7 +57,7 @@ const ServicesHero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[600px] md:min-h-[750px] flex items-center justify-center overflow-hidden">
       {/* Auto-scrolling Background Images */}
       <div className="absolute inset-0 overflow-hidden">
         {backgroundImages.map((image, index) => (
@@ -97,8 +97,8 @@ const ServicesHero = () => {
       </div>
 
       {/* Premium Content */}
-      <div className="max-w-7xl mx-auto px-4 relative z-10 w-full">
-        <div ref={heroRef} className="scroll-reveal text-center max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 relative z-10 w-full flex items-center justify-center min-h-[600px] md:min-h-[700px]">
+        <div ref={heroRef} className="scroll-reveal text-center max-w-4xl mx-auto flex flex-col items-center">
           {/* Premium Badge */}
           <div className="inline-block mb-8 animate-fade-in-up">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 shadow-lg">
