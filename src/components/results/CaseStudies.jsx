@@ -120,9 +120,14 @@ const CaseStudies = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white border-t border-brown-100/30">
-      <div className="max-w-7xl mx-auto px-4">
+    <section ref={sectionRef} className="py-24 bg-white border-t border-brown-100/30 relative overflow-hidden" id="stories">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.05),transparent_35%),radial-gradient(circle_at_80%_60%,rgba(59,130,246,0.04),transparent_40%)]" />
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 text-emerald-700 text-sm font-semibold border border-emerald-100 mb-4">
+            <Zap className="w-4 h-4" />
+            Real-world wins
+          </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 tracking-tight">
             Success <span className="text-green-600 gradient-text">Stories</span>
           </h2>
@@ -139,7 +144,7 @@ const CaseStudies = () => {
             return (
               <div
                 key={study.id}
-                className="case-study-card scroll-reveal bg-white rounded-2xl shadow-lg border border-brown-100/50 overflow-hidden premium-hover premium-glow"
+                className="case-study-card scroll-reveal bg-white rounded-2xl shadow-lg border border-emerald-100/70 overflow-hidden premium-hover premium-glow"
               >
                 <div
                   className="p-8 cursor-pointer"

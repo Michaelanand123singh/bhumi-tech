@@ -54,9 +54,13 @@ const ClientLogos = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white border-t border-brown-100/30">
-      <div className="max-w-7xl mx-auto px-4">
+    <section ref={sectionRef} className="py-24 bg-white border-t border-brown-100/30 relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(16,185,129,0.05),transparent_40%)]" />
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 text-green-700 text-sm font-semibold border border-green-100 mb-4">
+            Partner ecosystem
+          </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 tracking-tight">
             Our <span className="text-green-600 gradient-text">Clients</span> & Partners
           </h2>
