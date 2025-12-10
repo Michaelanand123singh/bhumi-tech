@@ -6,7 +6,6 @@ import AntiPiracyServices from '../components/services/AntiPiracyServices';
 import HowWeWork from '../components/services/HowWeWork';
 import ServiceFeatures from '../components/services/ServiceFeatures';
 import PricingSection from '../components/services/PricingSection';
-import ServicesCTA from '../components/services/ServicesCTA';
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState('distribution');
@@ -46,7 +45,6 @@ const Services = () => {
       <HowWeWork />
       <ServiceFeatures />
       <PricingSection />
-      <ServicesCTA />
     </div>
   );
 };
