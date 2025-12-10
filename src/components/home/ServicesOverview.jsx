@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Globe, Shield, CheckCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ServicesOverview = () => {
+  const sectionRef = useRef(null);
   const services = [
     {
       icon: Globe,
@@ -20,44 +21,70 @@ const ServicesOverview = () => {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const cards = entry.target.querySelectorAll('.service-card');
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add('revealed');
+              }, index * 150);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const sectionElement = sectionRef.current;
+    if (sectionElement) observer.observe(sectionElement);
+
+    return () => {
+      if (sectionElement) observer.unobserve(sectionElement);
+    };
+  }, []);
+
   return (
-    <section className="py-20 bg-white">
+    <section ref={sectionRef} className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 tracking-tight">
             Our <span className="text-green-600">Services</span>
           </h2>
-          <p className="text-xl text-[#4a4a4a] max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-[#4a4a4a] max-w-2xl mx-auto leading-relaxed">
             Comprehensive solutions for content creators, production houses, and broadcasters
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-brown-100 group"
+                className="service-card scroll-reveal bg-white rounded-2xl p-8 lg:p-10 shadow-md hover:shadow-xl transition-all duration-300 border border-brown-100/50 group"
               >
-                <div className="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors">
-                  <IconComponent className="w-8 h-8 text-green-600 group-hover:text-white transition-colors" />
+                <div className="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-600 transition-all duration-300">
+                  <IconComponent className="w-8 h-8 text-green-600 group-hover:text-white transition-all duration-300 group-hover:scale-110" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-4">{service.title}</h3>
-                <p className="text-[#4a4a4a] mb-6 leading-relaxed">{service.description}</p>
-                <ul className="space-y-3 mb-6">
+                <h3 className="text-2xl lg:text-3xl font-bold text-black mb-4">{service.title}</h3>
+                <p className="text-[#4a4a4a] mb-8 leading-relaxed text-base lg:text-lg">{service.description}</p>
+                <ul className="space-y-4 mb-8">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-black">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                      <span>{feature}</span>
+                    <li key={idx} className="flex items-start text-black">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-base">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   to="/services"
-                  className="text-green-600 font-semibold flex items-center hover:translate-x-2 transition-transform"
+                  className="text-green-600 font-semibold flex items-center hover:translate-x-2 transition-transform duration-300 group/link"
                 >
                   Learn More
-                  <ArrowRight className="ml-1 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover/link:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
             );
