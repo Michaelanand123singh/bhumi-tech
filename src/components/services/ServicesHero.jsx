@@ -57,7 +57,7 @@ const ServicesHero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[600px] md:min-h-[750px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen md:min-h-screen flex items-center justify-center overflow-hidden">
       {/* Auto-scrolling Background Images */}
       <div className="absolute inset-0 overflow-hidden">
         {backgroundImages.map((image, index) => (
@@ -140,8 +140,8 @@ const ServicesHero = () => {
         </div>
       </div>
 
-      {/* Bottom Gradient Fade - Reduced height and z-index */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-0"></div>
+      {/* Bottom Gradient Fade to next section (match About) */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-20"></div>
     </section>
   );
 };
