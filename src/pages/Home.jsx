@@ -4,7 +4,6 @@ import StatsSection from '../components/home/StatsSection';
 import ServicesOverview from '../components/home/ServicesOverview';
 import WhyChooseUs from '../components/home/WhyChooseUs';
 import ClientsCarousel from '../components/home/ClientsCarousel';
-import CTASection from '../components/home/CTASection';
 
 const Home = () => {
   return (
@@ -14,7 +13,6 @@ const Home = () => {
       <ServicesOverview />
       <WhyChooseUs />
       <ClientsCarousel />
-      <CTASection />
     </div>
   );
 };
