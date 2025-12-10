@@ -1,13 +1,50 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const ContactHero = () => {
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const heroElement = heroRef.current;
+    if (heroElement) observer.observe(heroElement);
+
+    return () => {
+      if (heroElement) observer.unobserve(heroElement);
+    };
+  }, []);
+
   return (
-    <section className="bg-gradient-to-r from-green-600 to-green-700 text-white py-20">
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-5xl font-bold mb-6">Get In Touch</h1>
-        <p className="text-xl max-w-2xl mx-auto">
-          We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-        </p>
+    <section className="pt-24 pb-20 px-4 bg-gradient-to-b from-green-50/40 via-white to-white relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-green-100/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-brown-100/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+      </div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div ref={heroRef} className="scroll-reveal text-center max-w-4xl mx-auto">
+          <div className="inline-block mb-6">
+            <span className="bg-green-50 text-green-600 px-4 py-2 rounded-full text-sm font-semibold border border-green-200">
+              💬 Let's Connect
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-6 leading-[1.1] tracking-tight">
+            Let's Protect and Grow Your{' '}
+            <span className="text-green-600 gradient-text">Content Together</span>
+          </h1>
+          <p className="text-lg md:text-xl text-[#4a4a4a] leading-relaxed max-w-3xl mx-auto">
+            Get in touch for a free consultation and custom quote. Our team of experts is ready to help you maximize your content's value and security.
+          </p>
+        </div>
       </div>
     </section>
   );
