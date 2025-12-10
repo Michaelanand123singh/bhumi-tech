@@ -1,12 +1,19 @@
 import React from 'react';
+import ResultsHero from '../components/results/ResultsHero';
+import MetricsDashboard from '../components/results/MetricsDashboard';
+import CaseStudies from '../components/results/CaseStudies';
+import Testimonials from '../components/results/Testimonials';
+import ClientLogos from '../components/results/ClientLogos';
+
 
 const Results = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold text-black mb-4">Results Page</h1>
-        <p className="text-2xl text-[#4a4a4a]">Coming Soon</p>
-      </div>
+    <div className="min-h-screen bg-white">
+      <ResultsHero />
+      <MetricsDashboard />
+      <CaseStudies />
+      <Testimonials />
+      <ClientLogos />
     </div>
   );
 };
