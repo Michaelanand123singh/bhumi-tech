@@ -1,16 +1,111 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
+const ClientLogo = ({ logoUrls, companyName }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageError, setImageError] = useState(false);
+  
+  const handleError = () => {
+    if (currentIndex < logoUrls.length - 1) {
+      // Try next fallback URL
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      // All URLs failed, show text
+      setImageError(true);
+    }
+  };
+  
+  if (imageError) {
+    return (
+      <span className="text-lg font-bold text-gray-400 group-hover:text-green-600 transition-colors duration-300">
+        {companyName}
+      </span>
+    );
+  }
+  
+  return (
+    <img
+      src={logoUrls[currentIndex]}
+      alt={companyName}
+      className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+      loading="lazy"
+      onError={handleError}
+      key={currentIndex}
+    />
+  );
+};
+
 const ClientsCarousel = () => {
+  // Using simple-icons CDN which is reliable and works well
+  const getSimpleIcon = (iconName) => {
+    return `https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/${iconName}.svg`;
+  };
+
   const clients = [
-    'Netflix',
-    'Amazon Prime',
-    'Disney+ Hotstar',
-    'ZEE5',
-    'SonyLIV',
-    'MX Player',
-    'YouTube',
-    'Jio Cinema',
+    {
+      name: 'Netflix',
+      logos: [
+        getSimpleIcon('netflix'),
+        'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg',
+        'https://logo.clearbit.com/netflix.com'
+      ]
+    },
+    {
+      name: 'Amazon Prime',
+      logos: [
+        getSimpleIcon('primevideo'),
+        'https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png',
+        'https://logo.clearbit.com/primevideo.com'
+      ]
+    },
+    {
+      name: 'Disney+ Hotstar',
+      logos: [
+        getSimpleIcon('disneyplus'),
+        'https://upload.wikimedia.org/wikipedia/commons/6/64/Disney%2B_Hotstar_logo.svg',
+        'https://logo.clearbit.com/hotstar.com'
+      ]
+    },
+    {
+      name: 'ZEE5',
+      logos: [
+        getSimpleIcon('zee5'),
+        'https://upload.wikimedia.org/wikipedia/commons/8/8a/ZEE5_logo.svg',
+        'https://logo.clearbit.com/zee5.com'
+      ]
+    },
+    {
+      name: 'SonyLIV',
+      logos: [
+        getSimpleIcon('sonyliv'),
+        'https://upload.wikimedia.org/wikipedia/commons/7/7a/SonyLIV_logo.svg',
+        'https://logo.clearbit.com/sonyliv.com'
+      ]
+    },
+    {
+      name: 'MX Player',
+      logos: [
+        getSimpleIcon('mxplayer'),
+        'https://upload.wikimedia.org/wikipedia/commons/7/7c/MX_Player_logo.svg',
+        'https://logo.clearbit.com/mxplayer.in'
+      ]
+    },
+    {
+      name: 'YouTube',
+      logos: [
+        getSimpleIcon('youtube'),
+        'https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_logo_%282017%29.svg',
+        'https://logo.clearbit.com/youtube.com'
+      ]
+    },
+    {
+      name: 'Jio Cinema',
+      logos: [
+        getSimpleIcon('jiocinema'),
+        'https://upload.wikimedia.org/wikipedia/commons/9/9a/JioCinema_logo.svg',
+        'https://logo.clearbit.com/jiocinema.com'
+      ]
+    },
   ];
 
   // Duplicating the list to ensure smooth infinite scroll
@@ -56,12 +151,13 @@ const ClientsCarousel = () => {
           >
             {marqueeClients.map((client, index) => (
               <div
-                key={index}
-                className="flex-shrink-0 w-48 h-24 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:shadow-md hover:border-green-200 transition-all duration-300 group cursor-default"
+                key={`${client.name}-${index}`}
+                className="flex-shrink-0 w-48 h-24 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center hover:shadow-md hover:border-green-200 transition-all duration-300 group cursor-default p-4"
               >
-                <span className="text-lg font-bold text-gray-400 group-hover:text-green-600 transition-colors duration-300">
-                  {client}
-                </span>
+                <ClientLogo 
+                  logoUrls={client.logos} 
+                  companyName={client.name}
+                />
               </div>
             ))}
           </motion.div>
