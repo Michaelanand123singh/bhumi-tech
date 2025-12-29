@@ -8,19 +8,19 @@ const ContactInfo = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+91 79036 24752', 'Mon-Sat, 10 AM - 7 PM IST'],
-      action: 'tel:+917903624752',
+      details: ['+91 XXX XXX XXXX', 'Mon-Sat, 10 AM - 7 PM IST'],
+      action: 'tel:+91XXXXXXXXXX',
     },
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@bhumitechnology.com'],
-      action: 'mailto:info@bhumitechnology.com',
+      details: ['business@bhumitech.com', 'support@bhumitech.com'],
+      action: 'mailto:business@bhumitech.com',
     },
     {
       icon: MapPin,
       title: 'Head Office',
-      details: ['Gaya, Bihar, India', '(823001)'],
+      details: ['Bhumi Technology Pvt. Ltd.', 'Amritsar, Punjab, India'],
       action: null,
     },
     {

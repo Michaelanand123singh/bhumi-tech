@@ -50,9 +50,9 @@ const ContactMap = () => {
             <p className="text-black text-xl font-bold mb-3">Google Maps Integration</p>
             <p className="text-[#4a4a4a] mb-2">Embed your office location map here</p>
             <p className="text-green-600 font-semibold text-lg">
-              Bhumi Technology
+              Bhumi Technology Pvt. Ltd.
             </p>
-            <p className="text-[#4a4a4a]">Gaya, Bihar, India (823001)</p>
+            <p className="text-[#4a4a4a]">Amritsar, Punjab, India</p>
           </div>
         </div>
       </div>

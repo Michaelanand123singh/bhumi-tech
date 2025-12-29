@@ -41,27 +41,22 @@ const ContactSocial = () => {
         </p>
         <div className="flex justify-center space-x-6">
           <a
-            href="https://wa.me/917903624752"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
             className="social-icon scroll-reveal w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-green-50 transition-all duration-300 border border-brown-100/50 premium-hover premium-glow group"
-            title="WhatsApp"
+          >
+            <Globe className="w-7 h-7 text-black group-hover:text-green-600 transition-all duration-300 group-hover:scale-110" />
+          </a>
+          <a
+            href="#"
+            className="social-icon scroll-reveal w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-green-50 transition-all duration-300 border border-brown-100/50 premium-hover premium-glow group"
           >
             <MessageCircle className="w-7 h-7 text-black group-hover:text-green-600 transition-all duration-300 group-hover:scale-110" />
           </a>
           <a
-            href="mailto:info@bhumitechnology.com"
+            href="#"
             className="social-icon scroll-reveal w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-green-50 transition-all duration-300 border border-brown-100/50 premium-hover premium-glow group"
-            title="Email"
           >
             <Mail className="w-7 h-7 text-black group-hover:text-green-600 transition-all duration-300 group-hover:scale-110" />
-          </a>
-          <a
-            href="tel:+917903624752"
-            className="social-icon scroll-reveal w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-green-50 transition-all duration-300 border border-brown-100/50 premium-hover premium-glow group"
-            title="Phone"
-          >
-            <Globe className="w-7 h-7 text-black group-hover:text-green-600 transition-all duration-300 group-hover:scale-110" />
           </a>
         </div>
       </div>
