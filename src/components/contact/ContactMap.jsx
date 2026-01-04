@@ -34,16 +34,24 @@ const ContactMap = () => {
             Visit us at our headquarters or reach out through any of our contact channels
           </p>
         </div>
-        <div className="bg-gradient-to-br from-green-50/50 to-white rounded-2xl border border-brown-100/50 shadow-xl premium-glow scroll-reveal overflow-hidden relative">
+        <div className="rounded-2xl border border-brown-100/50 shadow-xl premium-glow overflow-hidden relative w-full bg-white" style={{ minHeight: '500px' }}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57957.672602773164!2d84.9407953140931!3d24.783310589059997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f32a440a1b3c1f%3A0xcef6b223bdbf34a6!2sGaya%2C%20Bihar!5e0!3m2!1sen!2sin!4v1767510625221!5m2!1sen!2sin"
             width="100%"
             height="500"
-            style={{ border: 0 }}
-            allowFullScreen=""
+            style={{ 
+              border: 0, 
+              display: 'block', 
+              width: '100%', 
+              height: '500px', 
+              minHeight: '500px',
+              position: 'relative',
+              zIndex: 1
+            }}
+            allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="w-full h-[500px] rounded-2xl"
+            className="w-full h-[500px] min-h-[500px] rounded-2xl"
             title="Bhumi Technology Location - Gaya, Bihar"
           ></iframe>
         </div>
