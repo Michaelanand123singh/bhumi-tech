@@ -7,13 +7,23 @@ import Services from './pages/Services';
 import Results from './pages/Results';
 import Contact from './pages/Contact';
 import usePageTracking from './hooks/usePageTracking';
-import { initGA } from './utils/analytics';
+import { initGA, verifyGA } from './utils/analytics';
 import './App.css';
 
 function App() {
   // Initialize Google Analytics on app load
   useEffect(() => {
-    initGA();
+    // Wait a bit for gtag script to load, then initialize
+    const timer = setTimeout(() => {
+      initGA().then(() => {
+        // Verify GA is working (only in development)
+        if (process.env.NODE_ENV === 'development') {
+          verifyGA();
+        }
+      });
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (

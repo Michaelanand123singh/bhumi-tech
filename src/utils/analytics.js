@@ -6,15 +6,72 @@
 // Google Analytics Measurement ID
 export const GA_MEASUREMENT_ID = 'G-VBDW2G7847';
 
+// Ensure dataLayer and gtag exist immediately
+if (typeof window !== 'undefined') {
+  window.dataLayer = window.dataLayer || [];
+  
+  // Define gtag function if not already defined (fallback)
+  if (!window.gtag) {
+    window.gtag = function() {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(arguments);
+    };
+  }
+}
+
+/**
+ * Wait for gtag to be available
+ * @returns {Promise} Promise that resolves when gtag is available
+ */
+const waitForGtag = () => {
+  return new Promise((resolve) => {
+    if (typeof window !== 'undefined' && window.gtag && typeof window.gtag === 'function') {
+      resolve();
+    } else {
+      // Check every 100ms for gtag
+      const interval = setInterval(() => {
+        if (typeof window !== 'undefined' && window.gtag && typeof window.gtag === 'function') {
+          clearInterval(interval);
+          resolve();
+        }
+      }, 100);
+      
+      // Timeout after 5 seconds
+      setTimeout(() => {
+        clearInterval(interval);
+        resolve(); // Resolve anyway to not block the app
+      }, 5000);
+    }
+  });
+};
+
 /**
  * Initialize Google Analytics
  * This is called once when the app loads
  */
-export const initGA = () => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', GA_MEASUREMENT_ID, {
-      page_path: window.location.pathname + window.location.search,
-    });
+export const initGA = async () => {
+  if (typeof window === 'undefined') return;
+  
+  // Wait for gtag to be available
+  await waitForGtag();
+  
+  if (window.gtag && typeof window.gtag === 'function') {
+    try {
+      window.gtag('config', GA_MEASUREMENT_ID, {
+        page_path: window.location.pathname + window.location.search,
+        page_title: document.title,
+      });
+      
+      if (process.env.NODE_ENV === 'development') {
+        console.log('✅ Google Analytics initialized successfully');
+        console.log('Tracking ID:', GA_MEASUREMENT_ID);
+        console.log('Page:', window.location.pathname);
+      }
+    } catch (error) {
+      console.error('Error initializing Google Analytics:', error);
+    }
+  } else {
+    console.warn('Google Analytics gtag function not available');
   }
 };
 
@@ -25,8 +82,23 @@ export const initGA = () => {
  * @param {string} title - The title of the page (optional)
  */
 export const trackPageView = (path, title = '') => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', GA_MEASUREMENT_ID, {
+  if (typeof window === 'undefined') return;
+  
+  // Ensure gtag is available
+  if (window.gtag && typeof window.gtag === 'function') {
+    try {
+      window.gtag('config', GA_MEASUREMENT_ID, {
+        page_path: path,
+        page_title: title || document.title,
+      });
+    } catch (error) {
+      console.error('Error tracking page view:', error);
+    }
+  } else {
+    // If gtag not available, queue it in dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'page_view',
       page_path: path,
       page_title: title || document.title,
     });
@@ -39,8 +111,22 @@ export const trackPageView = (path, title = '') => {
  * @param {object} eventParams - Additional parameters for the event
  */
 export const trackEvent = (eventName, eventParams = {}) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', eventName, eventParams);
+  if (typeof window === 'undefined') return;
+  
+  // Ensure gtag is available
+  if (window.gtag && typeof window.gtag === 'function') {
+    try {
+      window.gtag('event', eventName, eventParams);
+    } catch (error) {
+      console.error('Error tracking event:', error);
+    }
+  } else {
+    // If gtag not available, queue it in dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: eventName,
+      ...eventParams,
+    });
   }
 };
 
@@ -128,11 +214,27 @@ export const trackServiceInterest = (serviceName, action = 'view') => {
   });
 };
 
-// Make gtag available globally for direct access if needed
-if (typeof window !== 'undefined') {
-  window.gtag = window.gtag || function() {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(arguments);
-  };
-}
+/**
+ * Verify Google Analytics is working
+ * Call this to check if GA is properly loaded
+ */
+export const verifyGA = () => {
+  if (typeof window === 'undefined') {
+    console.warn('GA Verification: window is undefined');
+    return false;
+  }
+  
+  const hasDataLayer = !!window.dataLayer;
+  const hasGtag = !!(window.gtag && typeof window.gtag === 'function');
+  const hasScript = !!document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+  
+  console.log('Google Analytics Status:', {
+    dataLayer: hasDataLayer,
+    gtag: hasGtag,
+    script: hasScript,
+    dataLayerLength: window.dataLayer?.length || 0,
+  });
+  
+  return hasDataLayer && hasGtag && hasScript;
+};
 
