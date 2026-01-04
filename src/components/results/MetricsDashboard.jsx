@@ -92,7 +92,7 @@ const MetricsDashboard = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white border-t border-brown-100/30 relative overflow-hidden" id="metrics">
+    <section ref={sectionRef} className="py-16 md:py-20 lg:py-24 bg-transparent relative overflow-hidden">
       {/* Soft Gradient Background */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.05),transparent_38%),radial-gradient(circle_at_80%_0%,rgba(99,102,241,0.05),transparent_42%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[length:140px_140px] opacity-40" />
