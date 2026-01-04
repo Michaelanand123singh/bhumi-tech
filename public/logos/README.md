@@ -24,3 +24,4 @@ To add company logos locally:
 
 3. Update the component to use local paths first.
 
+
