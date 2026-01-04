@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const ClientsCarousel = () => {
   const clients = [
@@ -19,19 +18,14 @@ const ClientsCarousel = () => {
   return (
     <section className="py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 mb-16 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 tracking-tight">
             Trusted <span className="text-green-600">Partners</span>
           </h2>
           <p className="text-lg md:text-xl text-[#4a4a4a] max-w-2xl mx-auto">
             Powering content delivery for the world's leading entertainment platforms
           </p>
-        </motion.div>
+        </div>
       </div>
 
       <div className="relative w-full">
@@ -39,19 +33,11 @@ const ClientsCarousel = () => {
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none" />
 
-        <div className="flex">
-          <motion.div
-            className="flex gap-8 py-4 px-4"
-            animate={{
-              x: ["0%", "-33.33%"],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 20,
-                ease: "linear",
-              },
+        <div className="flex overflow-hidden">
+          <div
+            className="flex gap-8 py-4 px-4 animate-scroll"
+            style={{
+              animation: 'scroll 20s linear infinite',
             }}
           >
             {marqueeClients.map((client, index) => (
@@ -64,7 +50,7 @@ const ClientsCarousel = () => {
                 </span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

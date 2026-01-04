@@ -82,6 +82,15 @@ body {
   }
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
