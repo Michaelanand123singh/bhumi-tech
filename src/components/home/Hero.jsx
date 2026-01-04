@@ -11,6 +11,7 @@ export default function Hero() {
           muted 
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-40"
+          aria-label="Digital entertainment distribution background video"
         >
           <source src="/7a77e434a915ea9aa86950d332653b7d_t4.mp4" type="video/mp4" />
         </video>
@@ -26,7 +27,7 @@ export default function Hero() {
           <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">
             Digital Entertainment
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400 mt-4">
-              Distribution
+              Distributions
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light">
@@ -37,9 +38,6 @@ export default function Hero() {
           </button>
         </div>
       </div>
-
-      {/* Bottom Gradient Fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent pointer-events-none z-20"></div>
     </div>
   );
 }

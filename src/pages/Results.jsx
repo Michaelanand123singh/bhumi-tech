@@ -5,11 +5,15 @@ import CaseStudies from '../components/results/CaseStudies';
 import Testimonials from '../components/results/Testimonials';
 import ClientLogos from '../components/results/ClientLogos';
 import ResultsCTA from '../components/results/ResultsCTA';
+import SEO from '../components/seo/SEO';
+import { seoData } from '../data/seoData';
 
 
 const Results = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
+    <>
+      <SEO {...seoData.results} />
+      <div className="relative min-h-screen bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
       {/* Soft ambient glows */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-24 -top-24 h-96 w-96 bg-emerald-200/40 blur-3xl rounded-full" />
@@ -44,7 +48,8 @@ const Results = () => {
           <ResultsCTA />
         </section>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

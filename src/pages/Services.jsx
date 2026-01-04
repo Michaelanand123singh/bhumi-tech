@@ -6,6 +6,8 @@ import AntiPiracyServices from '../components/services/AntiPiracyServices';
 import HowWeWork from '../components/services/HowWeWork';
 import ServiceFeatures from '../components/services/ServiceFeatures';
 import PricingSection from '../components/services/PricingSection';
+import SEO from '../components/seo/SEO';
+import { seoData, getServiceSchema } from '../data/seoData';
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState('distribution');
@@ -16,7 +18,12 @@ const Services = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO 
+        {...seoData.services}
+        structuredData={getServiceSchema()}
+      />
+      <div className="min-h-screen bg-white">
       <ServicesHero />
       
       {/* Service Tabs Section - Always Visible */}
@@ -45,7 +52,8 @@ const Services = () => {
       <HowWeWork />
       <ServiceFeatures />
       <PricingSection />
-    </div>
+      </div>
+    </>
   );
 };
 

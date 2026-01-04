@@ -5,10 +5,17 @@ import ContactForm from '../components/contact/ContactForm';
 import ContactSidebar from '../components/contact/ContactSidebar';
 import ContactMap from '../components/contact/ContactMap';
 import ContactSocial from '../components/contact/ContactSocial';
+import SEO from '../components/seo/SEO';
+import { seoData, getLocalBusinessSchema } from '../data/seoData';
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO 
+        {...seoData.contact}
+        structuredData={getLocalBusinessSchema()}
+      />
+      <div className="min-h-screen bg-white">
       <ContactHero />
       <ContactInfo />
       
@@ -24,7 +31,8 @@ const Contact = () => {
 
       <ContactMap />
       <ContactSocial />
-    </div>
+      </div>
+    </>
   );
 };
 
