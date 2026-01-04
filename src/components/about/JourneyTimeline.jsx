@@ -5,11 +5,11 @@ const JourneyTimeline = () => {
   const sectionRef = useRef(null);
 
   const timeline = [
-    { year: '2013', title: 'Foundation', description: 'Started with YouTube content management for regional creators' },
-    { year: '2016', title: 'Expansion', description: 'Extended services to OTT platforms and anti-piracy solutions' },
-    { year: '2019', title: 'Innovation', description: 'Launched AI-powered piracy detection system' },
-    { year: '2021', title: 'Growth', description: 'Crossed 500+ active content partners milestone' },
-    { year: '2024', title: 'Leadership', description: "Became India's leading entertainment technology partner" },
+    { year: '2018', title: 'Foundation', description: 'Started with YouTube content management for regional creators' },
+    { year: '2020', title: 'Expansion', description: 'Extended services to OTT platforms and anti-piracy solutions' },
+    { year: '2022', title: 'Innovation', description: 'Launched AI-powered piracy detection system' },
+    { year: '2024', title: 'Growth', description: 'Crossed 500+ active content partners milestone' },
+    { year: '2026', title: 'Leadership', description: "Became India's leading entertainment technology partner" },
   ];
 
   useEffect(() => {
