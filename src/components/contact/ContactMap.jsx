@@ -52,7 +52,7 @@ const ContactMap = () => {
             <p className="text-green-600 font-semibold text-lg">
               Bhumi Technology Pvt. Ltd.
             </p>
-            <p className="text-[#4a4a4a]">Amritsar, Punjab, India</p>
+            <p className="text-[#4a4a4a]">Gaya, Bihar, India (823001)</p>
           </div>
         </div>
       </div>

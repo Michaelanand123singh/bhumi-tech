@@ -20,7 +20,7 @@ const ContactInfo = () => {
     {
       icon: MapPin,
       title: 'Head Office',
-      details: ['Bhumi Technology Pvt. Ltd.', 'Amritsar, Punjab, India'],
+      details: ['Bhumi Technology Pvt. Ltd.', 'Gaya, Bihar, India (823001)'],
       action: null,
     },
     {
