@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { trackContact } from '../../utils/analytics';
 
 const ContactInfo = () => {
   const sectionRef = useRef(null);
@@ -82,6 +83,13 @@ const ContactInfo = () => {
                 {info.action && (
                   <a
                     href={info.action}
+                    onClick={() => {
+                      if (info.title === 'Phone') {
+                        trackContact('phone', 'contact_info');
+                      } else if (info.title === 'Email') {
+                        trackContact('email', 'contact_info');
+                      }
+                    }}
                     className="inline-flex items-center text-green-600 font-semibold text-sm mt-4 hover:text-green-700 transition-all duration-300 group/link"
                   >
                     Contact Now

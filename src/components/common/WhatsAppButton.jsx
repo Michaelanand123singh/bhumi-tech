@@ -1,13 +1,20 @@
 import React from 'react';
+import { trackContact, trackOutboundLink } from '../utils/analytics';
 
 const WhatsAppButton = ({ phoneNumber = '+917903624752', message = 'Hello', className = '' }) => {
   const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
+
+  const handleClick = () => {
+    trackContact('whatsapp', 'floating_button');
+    trackOutboundLink(whatsappUrl, 'WhatsApp Contact');
+  };
 
   return (
     <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       className={`fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors z-50 ${className}`}
       aria-label="Contact us on WhatsApp"
     >

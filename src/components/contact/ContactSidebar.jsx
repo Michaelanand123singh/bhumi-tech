@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Zap, Shield, Headphones, CheckCircle, Phone, MessageCircle, Clock } from 'lucide-react';
+import { trackContact, trackButtonClick, trackOutboundLink } from '../../utils/analytics';
 
 const ContactSidebar = () => {
   const sidebarRef = useRef(null);
@@ -94,6 +95,10 @@ const ContactSidebar = () => {
         <p className="text-black mb-5 leading-relaxed">{emergencySupport.description}</p>
         <a
           href="tel:+917903624752"
+          onClick={() => {
+            trackButtonClick('Call Emergency Line', 'contact_sidebar');
+            trackContact('phone', 'emergency_support');
+          }}
           className="block w-full bg-red-600 text-white py-3.5 rounded-lg hover:bg-red-700 transition-all duration-300 font-semibold text-center mb-3 shadow-lg hover:shadow-xl group"
         >
           <Phone className="inline w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
@@ -114,6 +119,11 @@ const ContactSidebar = () => {
             href="https://wa.me/917903624752"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackButtonClick('Chat on WhatsApp', 'contact_sidebar');
+              trackContact('whatsapp', 'contact_sidebar');
+              trackOutboundLink('https://wa.me/917903624752', 'Chat on WhatsApp');
+            }}
             className="inline-flex items-center bg-green-600 text-white px-8 py-3.5 rounded-lg hover:bg-green-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl group"
           >
             <MessageCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />

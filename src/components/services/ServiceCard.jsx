@@ -1,8 +1,14 @@
 import React from 'react';
 import { ChevronDown, ChevronRight, CheckCircle, Award } from 'lucide-react';
+import { trackServiceInterest } from '../../utils/analytics';
 
 const ServiceCard = ({ service, index, isExpanded, onToggle }) => {
   const IconComponent = service.icon;
+
+  const handleToggle = () => {
+    onToggle(index);
+    trackServiceInterest(service.title, isExpanded ? 'collapse' : 'expand');
+  };
 
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-brown-100/50 overflow-hidden premium-hover premium-glow group">
@@ -12,7 +18,7 @@ const ServiceCard = ({ service, index, isExpanded, onToggle }) => {
             <IconComponent className="w-8 h-8 text-green-600 group-hover:text-white transition-all duration-300" />
           </div>
           <button
-            onClick={() => onToggle(index)}
+            onClick={handleToggle}
             className="text-green-600 hover:text-green-700 transition-colors p-2 hover:bg-green-50 rounded-lg"
             aria-label={isExpanded ? 'Collapse' : 'Expand'}
           >

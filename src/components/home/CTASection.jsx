@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Phone, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { trackButtonClick, trackContact, trackOutboundLink } from '../../utils/analytics';
 
 const CTASection = () => {
   const sectionRef = useRef(null);
@@ -37,6 +38,7 @@ const CTASection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/contact"
+            onClick={() => trackButtonClick('Schedule Consultation', 'home_cta_section')}
             className="bg-white text-green-600 px-8 py-5 rounded-lg hover:bg-green-50 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl flex items-center justify-center group"
           >
             <Phone className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
@@ -46,6 +48,11 @@ const CTASection = () => {
             href="https://wa.me/917903624752"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackButtonClick('Chat on WhatsApp', 'home_cta_section');
+              trackContact('whatsapp', 'home_cta_section');
+              trackOutboundLink('https://wa.me/917903624752', 'Chat on WhatsApp');
+            }}
             className="bg-brown-600 text-white px-8 py-5 rounded-lg hover:bg-brown-700 transition-all duration-300 font-semibold border-2 border-white/20 hover:border-white/40 flex items-center justify-center group"
           >
             <MessageCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />

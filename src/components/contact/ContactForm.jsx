@@ -11,6 +11,7 @@ import {
   CheckCircle,
   Send,
 } from 'lucide-react';
+import { trackFormSubmit, trackContact } from '../../utils/analytics';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -37,6 +38,10 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // Track form submission
+    trackFormSubmit('contact_form', 'contact_page');
+    trackContact('form', 'contact_page');
 
     // Simulate submission
     setTimeout(() => {
