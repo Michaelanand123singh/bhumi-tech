@@ -56,7 +56,7 @@ const ContactSidebar = () => {
     title: 'Urgent Piracy Issue?',
     description:
       "If you're experiencing active content piracy right now, contact our rapid response team immediately.",
-    phone: '+91 XXX XXX XXXX',
+    phone: '+91 79036 24752',
     available: '24/7 Emergency Support',
   };
 
@@ -111,7 +111,7 @@ const ContactSidebar = () => {
           <h3 className="text-xl font-bold text-black mb-3">Quick Support via WhatsApp</h3>
           <p className="text-[#4a4a4a] mb-6 leading-relaxed">Get instant responses to your queries</p>
           <a
-            href="https://wa.me/91XXXXXXXXXX"
+            href="https://wa.me/917903624752"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-green-600 text-white px-8 py-3.5 rounded-lg hover:bg-green-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl group"

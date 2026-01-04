@@ -8,14 +8,14 @@ const ContactInfo = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+91 XXX XXX XXXX', 'Mon-Sat, 10 AM - 7 PM IST'],
-      action: 'tel:+91XXXXXXXXXX',
+      details: ['+91 79036 24752', 'Mon-Sat, 10 AM - 7 PM IST'],
+      action: 'tel:+917903624752',
     },
     {
       icon: Mail,
       title: 'Email',
-      details: ['business@bhumitech.com', 'support@bhumitech.com'],
-      action: 'mailto:business@bhumitech.com',
+      details: ['info@bhumitechnology.com'],
+      action: 'mailto:info@bhumitechnology.com',
     },
     {
       icon: MapPin,

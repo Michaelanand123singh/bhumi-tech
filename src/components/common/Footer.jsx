@@ -35,8 +35,8 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-white">Contact</h4>
-            <p className="text-gray-300">Email: info@bhumitech.com</p>
-            <p className="text-gray-300">Phone: +91 XXX XXX XXXX</p>
+            <p className="text-gray-300">Email: info@bhumitechnology.com</p>
+            <p className="text-gray-300">Phone: +91 79036 24752</p>
             <p className="text-gray-300">Gaya, Bihar, India (823001)</p>
           </div>
         </div>
