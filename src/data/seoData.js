@@ -2,7 +2,7 @@
 export const seoData = {
   home: {
     title: 'Digital Entertainment Distribution & Protection',
-    description: 'Bhumi Tech provides cutting-edge digital entertainment distribution and anti-piracy solutions. Protect and distribute your content with advanced technology and expert support.',
+    description: 'Bhumi Technology: 10+ years of expertise in digital entertainment distribution and anti-piracy solutions. Technology-driven global reach with 24/7 support. Proven results and 100% compliance. Protect and distribute your content with cutting-edge technology.',
     keywords: 'digital distribution, anti-piracy, content protection, entertainment distribution, OTT platforms, digital rights management, content security, Bhumi Technology',
     image: '/bhumi-logo.png',
   },
