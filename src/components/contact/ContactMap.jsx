@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { MapPin } from 'lucide-react';
 
 const ContactMap = () => {
   const sectionRef = useRef(null);
@@ -35,25 +34,18 @@ const ContactMap = () => {
             Visit us at our headquarters or reach out through any of our contact channels
           </p>
         </div>
-        <div className="bg-gradient-to-br from-green-50/50 to-white rounded-2xl h-[500px] flex items-center justify-center border border-brown-100/50 shadow-xl premium-glow scroll-reveal overflow-hidden relative">
-          {/* Decorative pattern overlay */}
-          <div
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h18v-2h-2v-2h2v-2h-2v-2h2v-2h-2V8h2V6h-2V4h2V2h-2V0h2v20H20v.5z'/%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          ></div>
-          <div className="text-center relative z-10">
-            <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
-              <MapPin className="w-10 h-10 text-white" />
-            </div>
-            <p className="text-black text-xl font-bold mb-3">Google Maps Integration</p>
-            <p className="text-[#4a4a4a] mb-2">Embed your office location map here</p>
-            <p className="text-green-600 font-semibold text-lg">
-              Bhumi Technology Pvt. Ltd.
-            </p>
-            <p className="text-[#4a4a4a]">Gaya, Bihar, India (823001)</p>
-          </div>
+        <div className="bg-gradient-to-br from-green-50/50 to-white rounded-2xl border border-brown-100/50 shadow-xl premium-glow scroll-reveal overflow-hidden relative">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57957.672602773164!2d84.9407953140931!3d24.783310589059997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f32a440a1b3c1f%3A0xcef6b223bdbf34a6!2sGaya%2C%20Bihar!5e0!3m2!1sen!2sin!4v1767510625221!5m2!1sen!2sin"
+            width="100%"
+            height="500"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-[500px] rounded-2xl"
+            title="Bhumi Technology Location - Gaya, Bihar"
+          ></iframe>
         </div>
       </div>
     </section>
