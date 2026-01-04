@@ -93,7 +93,7 @@ const ContactSidebar = () => {
         </div>
         <p className="text-black mb-5 leading-relaxed">{emergencySupport.description}</p>
         <a
-          href={`tel:${emergencySupport.phone}`}
+          href="tel:+917903624752"
           className="block w-full bg-red-600 text-white py-3.5 rounded-lg hover:bg-red-700 transition-all duration-300 font-semibold text-center mb-3 shadow-lg hover:shadow-xl group"
         >
           <Phone className="inline w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />

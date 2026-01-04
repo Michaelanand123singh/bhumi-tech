@@ -43,7 +43,7 @@ const CTASection = () => {
             Schedule Consultation
           </Link>
           <a
-            href="https://wa.me/91XXXXXXXXXX"
+            href="https://wa.me/917903624752"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-brown-600 text-white px-8 py-5 rounded-lg hover:bg-brown-700 transition-all duration-300 font-semibold border-2 border-white/20 hover:border-white/40 flex items-center justify-center group"
